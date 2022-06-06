@@ -27,15 +27,16 @@ function onSearchBtn(e) {
 
 function createCards(data, geners) {
   //console.log(data.results);
-  let movieData = data.results
-    .map(el => {
-      console.log(el);
-      for (let key in geners) {
-        if (el.genre_ids.includes(key)) {
-          movieCard(el);
-        }
+  return data.results
+    .map(
+      el => {
+        //console.log(el);
+        //for (let key in geners) {
+        //  if (el.genre_ids.includes(key)) {
+        return movieCard(el);
       }
-    })
+      //}
+    )
     .join('');
 }
 //  console.log(movieData);
