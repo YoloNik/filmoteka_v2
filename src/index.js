@@ -4,24 +4,39 @@ import movieCard from './templates/movieCard.hbs';
 const fetchAPI = new FetchAPI();
 
 const searchQuery = document.getElementById(`search-form`);
+const errorText = document.querySelector(`.search-error`);
+const homeBtn = document.querySelector('.home-btn');
 const movieGallery = document.querySelector(`.gallery`);
 
-//console.log(searchQuery);
+console.dir(homeBtn);
 
 searchQuery.addEventListener(`click`, onSearchBtn);
-
+homeBtn.addEventListener(`click`, onHomeBtn);
+if (movieGallery.childElementCount === 0) {
+  fetchAPI.fetchMovie().then(data => {
+    fetchAPI.getGenres().then(geners => {
+      createCards(data, geners);
+      movieGallery.innerHTML = createCards(data);
+    });
+  });
+}
+function onHomeBtn(e) {
+  document.location = `../index.html`;
+}
 function onSearchBtn(e) {
+  errorText.style.visibility = `hidden`;
   if (e.target.closest(`button`)) {
     e.preventDefault();
     fetchAPI.query = e.currentTarget.elements[0].value;
     fetchAPI.fetchMovie().then(data => {
-      //createCards(data);
       fetchAPI.getGenres().then(geners => {
         createCards(data, geners);
-        //console.log(data, geners);
       });
       movieGallery.innerHTML = createCards(data);
     });
+  }
+  if (movieGallery.childElementCount === 0) {
+    errorText.style.visibility = `visible`;
   }
 }
 
