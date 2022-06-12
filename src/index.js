@@ -2,7 +2,7 @@ import apiService from './js/fetchApi';
 import fetchNormaMovie from './js/markup-movie-card';
 
 const searchQuery = document.getElementById(`search__form`);
-const errorText = document.querySelector(`.search-error`);
+const errorText = document.querySelector(`.search__error`);
 const homeBtn = document.querySelector('.header__home-btn');
 const movieGallery = document.querySelector(`.gallery`);
 
@@ -15,7 +15,7 @@ function onHomeBtn(e) {
   document.location = `../index.html`;
 }
 function onSearchBtn(e) {
-  errorText.style.visibility = `hidden`;
+  //errorText.style.visibility = `hidden`;
   if (e.target.closest(`button`)) {
     e.preventDefault();
     apiService.query = e.currentTarget.elements[0].value;

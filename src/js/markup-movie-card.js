@@ -1,8 +1,10 @@
 import apiService from './fetchApi';
 
 const movieGallery = document.querySelector(`.gallery`);
+const errorText = document.querySelector(`.search__error`);
 
 export default function fetchNormaMovie() {
+  errorText.style.visibility = `hidden`;
   apiService.getGenres();
   apiService.fetchMovie().then(movieData => {
     const genres = apiService.genresValue;
@@ -13,7 +15,12 @@ export default function fetchNormaMovie() {
         })
         .join(', ');
     });
-    movieGallery.innerHTML = createCards(movieData, normaGenres);
+    if (movieData.total_results === 0) {
+      movieGallery.innerHTML = '';
+      errorText.style.visibility = `visible`;
+    } else {
+      movieGallery.innerHTML = createCards(movieData, normaGenres);
+    }
   });
 }
 
