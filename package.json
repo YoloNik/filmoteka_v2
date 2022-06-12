@@ -15,7 +15,6 @@
   "keywords": [],
   "author": "Nikita Slipachuk <nikitaslipachuk@gmail.com>",
   "license": "ISC",
- 
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
@@ -24,10 +23,9 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
-    "axios": "^0.27.2",
-    "hbs": "^4.2.0",
+    "basiclightbox": "^5.0.4",
     "lodash.debounce": "^4.0.8",
-    "notiflix": "^3.2.5",
-    "simplelightbox": "^2.10.3"
+    "node-sass": "^7.0.1",
+    "notiflix": "^3.2.5"
   }
 }

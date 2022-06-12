@@ -1,12 +1,10 @@
-import async from 'hbs/lib/async';
-
-export default class fetchAPI {
+class fetchAPI {
   BASE_URL = 'https://api.themoviedb.org/3';
   API_KEY = `87f9885ae1efa5e26738121aab64796c`;
   constructor() {
     this.searchQuery = '';
     this.page = 1;
-    this.genres = [];
+    this.genres = {};
   }
 
   async fetchMovie() {
@@ -56,4 +54,10 @@ export default class fetchAPI {
         return normaGenres;
       });
   }
+  get genresValue() {
+    return this.genres;
+  }
 }
+
+const apiService = new fetchAPI();
+export default apiService;

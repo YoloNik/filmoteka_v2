@@ -1,27 +1,31 @@
-<header class="section-header">
-	<div class="header-top">
-		<a class="header-logo" href="index.html">
-			<div class="logo">
-				<img src="./img/logo.png" alt="">
-				<h1>Filmoteka</h1>
+<header>
+
+	<div class="header">
+
+		
+			<div class="header__logo">
+				<a class="header__logo-link" href="index.html">
+					<img src="./img/logo.png" alt="">
+					<h1>Filmoteka</h1>
+				</a>
 			</div>
-		</a>
-		<div class="nav-box">
-			<button class="home-btn active-page nav-btn" >HOME</button>
-			<button class="library-btn nav-btn">MY LIBRARY</button>
-			
+		
+		<div class="header__nav">
+			<button class="header__home-btn header__active-page nav-btn">HOME</button>
+			<button class="header__library-btn nav-btn">MY LIBRARY</button>
 		</div>
 	</div>
 
-	<div class="form-box">
-		<form class="search-form" id="search-form">
+	<div class="search">
+		<form class="search__form" id="search__form">
 
 			<input  type="text" name="searchQuery" autocomplete="off" placeholder="Search movies" />
 			<button type="submit"></button>
 
-
 		</form>
 		
+		<div class="search__error">Search result not successful. Enter the correct movie name and</div>
 	</div>
-	<div class="search-error">Search result not successful. Enter the correct movie name and</div>
+	
+
 </header>
