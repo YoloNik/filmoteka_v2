@@ -27,11 +27,12 @@ export default function fetchNormaMovie() {
 function createCards(movieData, normaGenres) {
   return movieData.results
     .map((el, idx) => {
-      let movieCard = document.createElement(`div`);
-      return (movieCard.innerHTML = `<div class="movie-card">
+      if (el.poster_path !== null) {
+        let movieCard = document.createElement(`div`);
+        return (movieCard.innerHTML = `<div class="movie-card">
 <img src="https://image.tmdb.org/t/p/w500${el.poster_path}" data-id="${
-        el.id
-      }" alt="There should be a poster 😮">
+          el.id
+        }" alt="There should be a poster 😮">
   <div class="movie-card__title">
 		<span>${el.title}</span>
 	<div class="movie-card__info-item">
@@ -39,6 +40,7 @@ function createCards(movieData, normaGenres) {
 	</div>
   </div>
 </div>`);
+      }
     })
     .join('');
 }
