@@ -14,6 +14,7 @@ body, h2, h3, h4, h5, h6{
 	background-color: $body-color;
 }
 *{
+
 	margin: 0;
 	padding: 0;
 }
@@ -60,13 +61,13 @@ header{
 	.header__nav{
 		display: flex;
 		align-items: flex-end;
+		
 	@media screen and (min-width: 768px) {
 		align-items: center;
 		margin-top: 0;
 	}
-	.nav-btn{
-		background-color: inherit;
-		border: none;
+	.nav{
+		text-decoration: none;	
 		color: $white-color;
 		margin-left: 40px;
 	@media screen and (min-width: 768px) {
@@ -78,6 +79,47 @@ header{
 		text-decoration: underline 3px $accent-color-orange solid;
 		}
 	}
+}
+
+.header-library{
+	display: block;
+		background-size: cover;
+		height: 230px;
+		background: url(../img/library_320.jpg);
+	
+		@media screen and (min-width:768px) {
+			background: url(../img/library_768.jpg);
+			background-size: cover;
+		}
+	
+		@media screen and (min-width:1024px) {
+			background: url(../img/library_1024.jpg);
+			background-size: cover;
+		}
+		.nav-op{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 20px;
+			& button{
+				width: 130px;
+				height: 44px;
+				background-color: inherit;
+				color: $white-color;
+				border: 1px $white-color solid;
+				border-radius: 5px;
+			}
+		.active-btn {
+			background-color: $accent-color-orange;
+		}
+		}
+		
+		.header{
+padding-bottom: 50px;
+@media screen and (min-width:768px) {
+	padding-bottom: 28px;
+	}		
+}
 }
 .search {
 	width: 280px;
