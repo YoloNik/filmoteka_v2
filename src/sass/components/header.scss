@@ -253,24 +253,32 @@ padding-bottom: 50px;
 		display: none;
 	}
 }
-
+.output-js{
+padding: 20px;
+}
 .backdrop-modal{
 	display: none;
+	position:fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	//opacity: 0.5;
+	overflow-y: scroll;
+	z-index: 1;
+	
+}
+.backdrop-container{
+	background-color: $white-color;
+	z-index: 2;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
 	border:1px #ff6b08 solid; 
 	width: 280px;
-	height: 958px;
-	//position: fixed;
-	//	top: 0;
-	//	bottom: 0;
-		overflow: hidden;
-		//overflow-y: auto;
-		flex-flow: column nowrap;
-		//justify-content: center;
-		//align-items: center;
-		z-index: 1;
-		padding: 48px 20px 0 ;
-		
-		
+		overflow: hidden;	
+		padding: 48px 0 0 ;
 }
 .modal-content{
 	h2 {
@@ -278,11 +286,12 @@ padding-bottom: 50px;
 			margin-bottom: 22px;
 			font-size: 20px;
 		}
-		padding: 20px;
 	&__close-btn {
 			position: fixed;
 			top: 18px;
 			right: 18px;
+			background-color: inherit;
+			border: none;
 		}
 	&__img {
 		border-radius: 5px;
@@ -295,7 +304,6 @@ padding-bottom: 50px;
 		font-weight: 600;
 		.category-list{
 			width: 110px;
-			//font-weight: 400;
 			opacity: 0.6;
 			&__item {
 				list-style-type: none;

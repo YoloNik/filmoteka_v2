@@ -31,7 +31,7 @@ function openModal(e) {
     apiService.movieId = movieId;
     fetcMovieForModal();
 
-    modal.style.display = `flex`;
+    modal.style.display = `block`;
   }
 }
 function closeModal(e) {
