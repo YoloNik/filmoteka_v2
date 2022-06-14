@@ -1,32 +1,41 @@
 import apiService from './js/fetchApi';
-import fetchNormaMovie from './js/markup-movie-card';
+import fetchMoviesWhisGenres from './js/markup-movie-card';
+import fetcMovieForModal from './js/markup-modal';
 
 const searchQuery = document.getElementById(`search__form`);
 const homeBtn = document.querySelector('.header__home-btn');
 const myLibrary = document.querySelector('.header__library-btn');
-const movieGallery = document.querySelector(`.gallery`);
+const movieGallery = document.getElementById(`gallery`);
+const singleMovie = document.querySelector('.movie-card');
+const modal = document.querySelector('.backdrop-modal');
 
+//console.log(movieGallery);
+
+modal.addEventListener('click', closeModal);
+movieGallery.addEventListener('click', openModal);
 searchQuery.addEventListener(`click`, onSearchBtn);
-homeBtn.addEventListener(`click`, onHomeBtn);
-myLibrary.addEventListener(`click`, onLibraryBtn);
 
-fetchNormaMovie();
+fetchMoviesWhisGenres();
 
 function onSearchBtn(e) {
   if (e.target.closest(`button`)) {
     e.preventDefault();
     apiService.query = e.currentTarget.elements[0].value;
-    fetchNormaMovie();
+    fetchMoviesWhisGenres();
   }
 }
 
-function onHomeBtn(e) {
-  homeBtn.classList.add('header__active-page');
-  myLibrary.classList.remove('header__active-page');
-  //document.location = `../index.html`;
-}
+function openModal(e) {
+  if (e.target.closest('.movie-card')) {
+    let movieId = e.target.dataset.id;
+    apiService.movieId = movieId;
+    fetcMovieForModal();
 
-function onLibraryBtn(e) {
-  homeBtn.classList.remove('header__active-page');
-  myLibrary.classList.add('header__active-page');
+    modal.style.display = `flex`;
+  }
+}
+function closeModal(e) {
+  if (e.target.closest('.modal-content__close-btn')) {
+    modal.style.display = `none`;
+  }
 }

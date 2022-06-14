@@ -5,9 +5,10 @@ class fetchAPI {
     this.searchQuery = '';
     this.page = 1;
     this.genres = {};
+    this.movieId = '';
   }
 
-  async fetchMovie() {
+  async getTrendMovies() {
     let URLQuery = this.searchQuery
       ? `${this.BASE_URL}/search/movie?api_key=${
           this.API_KEY
@@ -52,10 +53,25 @@ class fetchAPI {
         }, {});
         this.genres = normaGenres;
         return normaGenres;
-      });
+      })
+      .catch(error => console.log(error));
   }
   get genresValue() {
     return this.genres;
+  }
+  async getSingleMovie() {
+    return await fetch(
+      `${this.BASE_URL}/movie/${this.movieId}?api_key=${this.API_KEY}`
+    )
+      .then(response => {
+        if (response.status === 404) throw new Error();
+
+        return response.json();
+      })
+      .then(data => {
+        return data;
+      })
+      .catch(error => console.log(error));
   }
 }
 

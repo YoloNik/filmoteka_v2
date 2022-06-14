@@ -3,10 +3,10 @@ import apiService from './fetchApi';
 const movieGallery = document.querySelector(`.gallery`);
 const errorText = document.querySelector(`.search__error`);
 
-export default function fetchNormaMovie() {
+export default function fetchMoviesWhisGenres() {
   errorText.style.visibility = `hidden`;
   apiService.getGenres();
-  apiService.fetchMovie().then(movieData => {
+  apiService.getTrendMovies().then(movieData => {
     const genres = apiService.genresValue;
     const normaGenres = movieData.results.map(movieEl => {
       return movieEl.genre_ids
