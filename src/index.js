@@ -35,7 +35,10 @@ function openModal(e) {
   }
 }
 function closeModal(e) {
-  if (e.target.closest('.modal-content__close-btn')) {
+  if (
+    e.target.closest('.modal-content__close-btn') ||
+    e.target.className === 'backdrop-modal'
+  ) {
     modal.style.display = `none`;
   }
 }
