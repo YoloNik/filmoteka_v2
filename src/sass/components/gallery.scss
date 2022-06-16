@@ -1,0 +1,60 @@
+.gallery {
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+
+	@media screen and (min-width: 768px) {
+		margin: 60px 45px;
+	}
+
+	@media screen and (min-width: 1024px) {
+		padding: 0 40px;
+		margin: 60px auto;
+		max-width: 1024px;
+	}
+
+	img {
+		height: 402px;
+		width: 280px;
+		border-radius: 5px;
+
+		@media screen and (min-width: 768px) {
+			width: 295px;
+			height: 397px;
+		}
+
+		@media screen and (min-width: 1024px) {
+			width: 274px;
+		}
+	}
+
+	.movie-card {
+		width: 280px;
+
+		@media screen and (min-width: 768px) {
+			width: 295px;
+			height: 470px;
+		}
+
+		@media screen and (min-width: 1024px) {
+			width: 274px;
+			height: 470px;
+		}
+
+		&__title {
+			margin-top: 8px;
+			font-weight: 500;
+			text-transform: uppercase;
+			color: $primary-text-color;
+		}
+
+		&__info-item {
+			display: flex;
+			justify-content: space-between;
+			padding-top: 3px;
+			text-transform: none;
+			color: $accent-color-orange;
+		}
+	}
+}
