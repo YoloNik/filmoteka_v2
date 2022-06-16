@@ -14,8 +14,13 @@ export default function fetcMovieForModal() {
 
 function createModal(movieData, normaGenres) {
   let movieModal = document.createElement(`div`);
+  console.log(movieData);
   return (movieModal.innerHTML = `<img class="modal-content__img"
-			src="https://image.tmdb.org/t/p/w500${movieData.backdrop_path}" alt="${movieData.original_title}" />
+			src="${
+        movieData.poster_path
+          ? 'https://image.tmdb.org/t/p/w500' + movieData.poster_path
+          : 'https://expresspost.in///website/images/reporter_image/default.png'
+      }" alt="${movieData.original_title}" />
     <div class="wrap">
       <h2 class="modal-content__title">${movieData.original_title}</h2>
       <div class="info-wrap modal-content__info-wrap">
@@ -28,7 +33,9 @@ function createModal(movieData, normaGenres) {
         <ul class="category-value-list modal-content__category-value-list">
           <li class="category-value-list__item">
 						<p class="category-value-list__item_bg-color">${movieData.vote_average} </p>
-						<p class="category-value-list__item_font-color"> / ${movieData.vote_count} </p> </li>
+						<p class="category-value-list__item_font-color"> / ${
+              movieData.vote_count
+            } </p> </li>
           <li class="category-value-list__item">${movieData.popularity}</li>
           <li class="category-value-list__item">${movieData.title}</li>
           <li class="category-value-list__item">${normaGenres}</li>
