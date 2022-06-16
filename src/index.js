@@ -9,9 +9,8 @@ const movieGallery = document.getElementById(`gallery`);
 const singleMovie = document.querySelector('.movie-card');
 const modal = document.querySelector('.backdrop-modal');
 
-//console.log(movieGallery);
-
 modal.addEventListener('click', closeModal);
+
 movieGallery.addEventListener('click', openModal);
 searchQuery.addEventListener(`click`, onSearchBtn);
 
@@ -26,6 +25,7 @@ function onSearchBtn(e) {
 }
 
 function openModal(e) {
+  window.addEventListener(`keydown`, onEscCloseModal);
   if (e.target.closest('.movie-card')) {
     let movieId = e.target.dataset.id;
     apiService.movieId = movieId;
@@ -36,9 +36,15 @@ function openModal(e) {
 }
 function closeModal(e) {
   if (
-    e.target.closest('.modal-content__close-btn') ||
+    e.target.closest(`.modal-content__close-btn`) ||
     e.target.className === 'backdrop-modal'
   ) {
     modal.style.display = `none`;
+  }
+}
+function onEscCloseModal(e) {
+  if (e.code === 'Escape') {
+    modal.style.display = `none`;
+    window.removeEventListener(`keydown`, onEscCloseModal);
   }
 }

@@ -14,7 +14,6 @@ export default function fetcMovieForModal() {
 
 function createModal(movieData, normaGenres) {
   let movieModal = document.createElement(`div`);
-  console.log(movieData);
   return (movieModal.innerHTML = `<img class="modal-content__img"
 			src="${
         movieData.poster_path
