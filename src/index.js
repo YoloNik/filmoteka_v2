@@ -1,7 +1,7 @@
 import apiService from './js/fetchApi';
 import fetchMoviesWhisGenres from './js/markup-movie-card';
 import fetcMovieForModal from './js/markup-modal';
-import test from './js/local-storage';
+import localStorageMovie from './js/local-storage';
 
 const searchQuery = document.getElementById(`search__form`);
 const homeBtn = document.querySelector('.header__home-btn');
@@ -11,7 +11,6 @@ const singleMovie = document.querySelector('.movie-card');
 const modal = document.querySelector('.backdrop-modal');
 
 modal.addEventListener('click', closeModal);
-
 movieGallery.addEventListener('click', openModal);
 searchQuery.addEventListener(`click`, onSearchBtn);
 
@@ -33,7 +32,7 @@ function openModal(e) {
     fetcMovieForModal();
 
     modal.style.display = `block`;
-    test();
+    localStorageMovie();
   }
 }
 function closeModal(e) {

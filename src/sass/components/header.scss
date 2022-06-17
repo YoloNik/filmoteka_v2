@@ -14,6 +14,7 @@ h3,
 h4,
 h5,
 h6 {
+	height: 100%;
   font-family: Roboto;
   font-size: 12px;
   margin: 0;
@@ -40,6 +41,7 @@ header {
 .header {
   padding: 46px 21px 43px;
   display: flex;
+	
   justify-content: space-between;
   @media screen and (min-width: 768px) {
     padding: 20px 70px;

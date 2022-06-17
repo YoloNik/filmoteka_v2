@@ -8,13 +8,12 @@ export default async function fetcMovieForModal() {
     const normaGenres = movieData.genres
       .map(genres => genres[`name`])
       .join(', ');
-    modalWin.innerHTML = createModal(movieData, normaGenres);
+    createModal(movieData, normaGenres);
   });
 }
 
 function createModal(movieData, normaGenres) {
-  let movieModal = document.createElement(`div`);
-  return (movieModal.innerHTML = `<img class="modal-content__img"
+  return (modalWin.innerHTML = `<img class="modal-content__img"
 			src="${
         movieData.poster_path
           ? 'https://image.tmdb.org/t/p/w500' + movieData.poster_path
