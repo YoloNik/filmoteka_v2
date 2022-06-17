@@ -1,6 +1,7 @@
 import apiService from './js/fetchApi';
 import fetchMoviesWhisGenres from './js/markup-movie-card';
 import fetcMovieForModal from './js/markup-modal';
+import test from './js/local-storage';
 
 const searchQuery = document.getElementById(`search__form`);
 const homeBtn = document.querySelector('.header__home-btn');
@@ -32,6 +33,7 @@ function openModal(e) {
     fetcMovieForModal();
 
     modal.style.display = `block`;
+    test();
   }
 }
 function closeModal(e) {

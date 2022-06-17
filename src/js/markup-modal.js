@@ -3,8 +3,8 @@ import apiService from './fetchApi';
 
 const modalWin = document.querySelector('.output-js');
 
-export default function fetcMovieForModal() {
-  apiService.getSingleMovie().then(movieData => {
+export default async function fetcMovieForModal() {
+  return await apiService.getSingleMovie().then(movieData => {
     const normaGenres = movieData.genres
       .map(genres => genres[`name`])
       .join(', ');
@@ -44,7 +44,7 @@ function createModal(movieData, normaGenres) {
       <p class="modal-content__description">${movieData.overview}</p>
       <div class="btn-wrap content__btn-wrap">
           <button class="btn-wrap__btn active" data-action="watched">add to Watched</button>
-          <button class="btn-wrap__btn " data-action="queue">add to queue</button>
+          <button class="btn-wrap__btn " data-action="queue">add to Queue</button>
         </div>
     `);
 }

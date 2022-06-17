@@ -1,7 +1,22 @@
 
 
 .output-js {
-	padding: 20px;
+	//padding: 0 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	@media screen and (min-width: 768px) {
+			display: flex;
+			align-items: flex-start;
+			flex-direction: row;
+			margin: 40px 0 ;
+			padding: 0 23px;
+			gap: 23px
+		}
+		@media screen and (min-width: 1024px) {
+			padding-top: 10px;
+			gap:0
+		}
 }
 
 .backdrop-modal {
@@ -13,6 +28,7 @@
 	width: 100vw;
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 1;
+	
 }
 
 .backdrop-container {
@@ -22,32 +38,70 @@
 	top: 50%;
 	left: 50%;
 	transform: translateX(-50%) translateY(-50%);
-	border: 1px #ff6b08 solid;
-	width: 280px;
-	height: 80vh;
+
 	overflow-y: scroll;
-	padding: 48px 0 0;
+	padding: 48px 10px 0;
+	@media screen and (min-width: 768px) {
+		overflow-y: hidden;
+			padding: 0;
+		}
+		@media screen and (min-width: 1024px) {
+				overflow-y: hidden;
+		}
+.wrap{
+	padding: 0 10px;
+	@media screen and (min-width: 768px) {
+	
+	}
+	@media screen and (min-width: 1024px) {
+		width: 45%;
+		margin-left: 20px;
+}
+}
+
 }
 
 .modal-content {
+		width: 100%;
+	
 	h2 {
-		margin-top: 25px;
-		margin-bottom: 22px;
+		margin-top: 30px;
+		margin-bottom: 18px;
 		font-size: 20px;
+		@media screen and (min-width: 768px) {
+				margin: 0;
+				margin-bottom: 20px;
+			}
+						@media screen and (min-width: 1024px) {
+							margin-bottom: 30px;
+						}
 	}
 
 	&__close-btn {
 		position: fixed;
-		top: 18px;
-		right: 18px;
+		top: 10px;
+		right: 10px;
 		background-color: inherit;
 		border: none;
+			@media screen and (min-width: 768px) {
+					top: 10px;
+					right: 10px;
+				}
 	}
 
 	&__img {
 		border-radius: 5px;
 		width: 240px;
 		height: 356px;
+		@media screen and (min-width: 768px) {
+				width: 264px;
+				height: 400px;
+			}
+		@media screen and (min-width: 1024px) {
+			width: 396px;
+			height: 477px;
+			padding-left: 10px;
+		}
 	}
 
 	&__info-wrap {
@@ -57,21 +111,28 @@
 		.category-list {
 			width: 110px;
 			opacity: 0.6;
+			@media screen and (min-width: 768px) {
+					margin-right: 30px;
+				}
+								
 
 			&__item {
 				list-style-type: none;
 				color: $secondary-text-color;
-				margin-bottom: 10px;
+				margin-bottom: 13px;
 			}
 		}
+.category-value-list{
+margin-left: 20px;
 
-		.category-value-list__item {
+		&__item {
 			display: flex;
 			align-items: center;
 			gap: 10px;
 			list-style-type: none;
 			color: $primary-text-color;
 			margin-bottom: 10px;
+			
 
 			&_bg-color {
 				text-align: center;
@@ -86,11 +147,15 @@
 			}
 		}
 	}
-
+}
 	&__description {
-		margin-top: 15px;
+		margin-top: 10px;
 		font-weight: 600;
 		line-height: 20px;
+	}
+		
+	&__subtitle {
+		margin-top: 5px;
 	}
 
 	.btn-wrap {
@@ -98,6 +163,14 @@
 		justify-content: center;
 		align-items: center;
 		gap: 15px;
+		margin-bottom: 40px;
+		@media screen and (min-width: 768px) {
+			margin: 20px 0 40px;
+			//gap: 5px;
+			}
+						@media screen and (min-width: 1024px) {
+							justify-content: flex-start;
+						}
 
 		&__btn {
 			margin-top: 15px;
@@ -107,6 +180,13 @@
 			height: 45px;
 			width: 112px;
 			background-color: inherit;
+			@media screen and (min-width: 768px) {
+			width: 125px;
+				}
+			
+				@media screen and (min-width: 1024px) {
+				width: 136px;
+				}
 		}
 
 		.active {

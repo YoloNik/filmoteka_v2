@@ -19,13 +19,13 @@ export default function fetchMoviesWhisGenres() {
       movieGallery.innerHTML = '';
       errorText.style.visibility = `visible`;
     } else {
-      movieGallery.innerHTML = createCards(movieData, normaGenres);
+      movieGallery.innerHTML = createCards(movieData.results, normaGenres);
     }
   });
 }
 
-function createCards(movieData, normaGenres) {
-  return movieData.results
+export function createCards(movieData, normaGenres) {
+  return movieData
     .map((el, idx) => {
       let movieCard = document.createElement(`div`);
       return (movieCard.innerHTML = `<div class="movie-card">
