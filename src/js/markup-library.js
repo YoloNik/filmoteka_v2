@@ -1,27 +1,34 @@
 import { createCards } from './markup-movie-card';
-//import localStorageMovie from './local-storage';
+
 const library = document.querySelector('.library');
 const watchedBtn = document.querySelector('.watchet-btn');
 const queueBtn = document.querySelector('.queue-btn');
 const optionsBtn = document.querySelector('.nav-op');
 
-let storageWatched = JSON.parse(localStorage.getItem(`watched`));
-let storageQueue = JSON.parse(localStorage.getItem('queue'));
+let storageWatched = JSON.parse(localStorage.getItem(`watched`)) || [];
+let storageQueue = JSON.parse(localStorage.getItem('queue')) || [];
+
+optionsBtn.addEventListener('click', toggleLibrary);
 
 export default function renderLibraryMarkup() {
-  renderMovie(storageWatched);
-  optionsBtn.addEventListener('click', toggleLibrary);
+  if (watchedBtn.closest('.active-btn')) {
+    renderMovie(storageWatched);
+  } else {
+    renderMovie(storageQueue);
+  }
 }
 
 function toggleLibrary(e) {
   if (e.target === watchedBtn) {
     watchedBtn.classList.add('active-btn');
     queueBtn.classList.remove('active-btn');
+    storageWatched = JSON.parse(localStorage.getItem(`watched`));
     renderMovie(storageWatched);
   }
   if (e.target === queueBtn) {
     queueBtn.classList.add('active-btn');
     watchedBtn.classList.remove('active-btn');
+    storageQueue = JSON.parse(localStorage.getItem('queue'));
     renderMovie(storageQueue);
   }
 }
@@ -46,6 +53,5 @@ function renderMovie(storage) {
       </p></div>`;
     })
     .join('');
-
-  library.insertAdjacentHTML('beforeend', markup);
+  library.innerHTML = markup;
 }

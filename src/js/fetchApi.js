@@ -4,6 +4,7 @@ class fetchAPI {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
+    this.totalPages;
     this.genres = {};
     this.movieId = '';
   }
