@@ -15,17 +15,12 @@ export default function fetchMoviesWhisGenres() {
         })
         .join(', ');
     });
-    if (movieData.total_results === 0) {
-      movieGallery.innerHTML = '';
-      errorText.style.visibility = `visible`;
-    } else {
-      movieGallery.innerHTML = createCards(movieData.results, normaGenres);
-    }
+    createCards(movieData.results, normaGenres);
   });
 }
 
 export function createCards(movieData, normaGenres) {
-  return movieData
+  const movieCard = movieData
     .map((el, idx) => {
       let movieCard = document.createElement(`div`);
       return (movieCard.innerHTML = `<div class="movie-card">
@@ -43,4 +38,10 @@ export function createCards(movieData, normaGenres) {
 </div>`);
     })
     .join('');
+  if (movieData.total_results === 0) {
+    movieGallery.innerHTML = '';
+    errorText.style.visibility = `visible`;
+  } else {
+    movieGallery.innerHTML = movieCard;
+  }
 }
