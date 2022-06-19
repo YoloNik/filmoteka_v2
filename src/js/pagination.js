@@ -1,7 +1,7 @@
 import apiService from './fetchApi';
 import Pagination from 'tui-pagination';
 import fetchMoviesWhisGenres from './markup-movie-card';
-import 'tui-pagination/dist/tui-pagination.css';
+//import 'tui-pagination/dist/tui-pagination.css';
 
 const container = document.getElementById('pagination');
 container.addEventListener('click', onPag);
@@ -18,24 +18,32 @@ export default async function pagOptions() {
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',
     template: {
-      page: `<a href="#" class="tui-page-btn numButton">{{page}}</a>`,
-      currentPage: `<strong class="tui-page-btn tui-is-selected">{{page}}</strong>`,
+      page: `<li class="tui-page-btn numButton">{{page}}</li>`,
+      currentPage: `<li class="tui-page-btn tui-is-selected">{{page}}</li>`,
       moveButton:
-        '<a href="#" class="tui-page-btn  tui-{{type}}">' +
-        '<span class="tui-ico-{{type}}">1</span>' +
-        '</a>',
+        '<li class="tui-page-btn  tui-{{type}}">' +
+        '<div class="tui-ico-{{type}}">{{type}}</div>' +
+        '</li>',
       disabledMoveButton:
-        '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-        ' 1 <span class="tui-ico-{{type}}">{{type}}</span>' +
-        '</span>',
+        '<li class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+        ' <div class="tui-ico-{{type}}">{{type}}</div>' +
+        '</li>',
       moreButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-        '<span class="tui-ico-ellip">...</span>' +
-        '</a>',
+        '<li class="tui-page-btn tui-{{type}}-is-ellip">' +
+        '<div class="tui-ico-ellip">...</div>' +
+        '</li>',
     },
   };
 
   const pagination = new Pagination(container, options);
+  const first = document.querySelector('.tui-ico-first');
+  const prev = document.querySelector('.tui-ico-prev');
+  const next = document.querySelector('.tui-ico-next');
+  const last = document.querySelector('.tui-ico-last');
+  first.innerHTML = '1';
+  prev.innerHTML = '<';
+  next.innerHTML = '>';
+  last.innerHTML = `${apiService.totalPages}`;
   return pagination;
 }
 
