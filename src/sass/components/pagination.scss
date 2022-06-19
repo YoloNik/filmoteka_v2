@@ -80,10 +80,10 @@
 
 	&.tui-first, &.tui-last, &.tui-next-is-ellip, &.tui-prev-is-ellip {
 			display: none;
-			@media screen and (width: 768px) {
+			@media screen and (min-width: 768px) {
 				display: flex;
 			}
-			@media screen and (width: 1024px) {
+			@media screen and (min-width: 1024px) {
 				display: flex;
 			}
 		}
@@ -103,7 +103,3 @@
 //}
 
 
-@media screen and (width: 768px) {
-	
-}
-@media screen and (width: 1024px) {}
