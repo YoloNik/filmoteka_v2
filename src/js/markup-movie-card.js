@@ -7,6 +7,7 @@ export default function fetchMoviesWhisGenres() {
   errorText.style.visibility = `hidden`;
   apiService.getGenres();
   apiService.getTrendMovies().then(movieData => {
+    apiService.totalPages = movieData.total_pages;
     const genres = apiService.genresValue;
     const normaGenres = movieData.results.map(movieEl => {
       return movieEl.genre_ids
@@ -19,7 +20,7 @@ export default function fetchMoviesWhisGenres() {
   });
 }
 
-export function createCards(movieData, normaGenres) {
+function createCards(movieData, normaGenres) {
   const movieCard = movieData
     .map((el, idx) => {
       let movieCard = document.createElement(`div`);

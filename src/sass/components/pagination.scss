@@ -1,51 +1,86 @@
-.pagination-container {
-	height: 40px;
-	margin-bottom: 40px;
-	@media screen and (min-width: 768px) {
-		margin-bottom: 60px;
-	}
-	.pagination__list {
-			display: flex;
-			align-items: center;
-			justify-content: space-around;
-			margin: 0 auto;
-			width: 280px;
-			@media screen and (min-width: 768px) {
-				width: 374px;
-			}
+//#pagination {
+//	height: 40px;
+//	margin-bottom: 40px;
+//	@media screen and (min-width: 768px) {
+//		margin-bottom: 60px;
+//	}
+//	.pagination__list {
+//			display: flex;
+//			align-items: center;
+//			justify-content: space-around;
+//			margin: 0 auto;
+//			width: 280px;
+//			@media screen and (min-width: 768px) {
+//				width: 374px;
+//			}
 
-			&-item{
-				list-style: none;
-				border-radius: 5px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				height: 40px;
-				width: 40px;
-				border: none;
-				background-color: inherit;
-				&:hover {
-						box-shadow: 0 0 5px #FF6B08 ;
-					}
+//			&-item{
+//				list-style: none;
+//				border-radius: 5px;
+//				display: flex;
+//				justify-content: center;
+//				align-items: center;
+//				height: 40px;
+//				width: 40px;
+//				border: none;
+//				background-color: inherit;
+//				&:hover {
+//						box-shadow: 0 0 5px #FF6B08 ;
+//					}
 
-			}
-		}
-	.active-page{
-		color: white;
-		background-color: #FF6B08;
+//			}
+//		}
+//	.active-page{
+//		color: white;
+//		background-color: #FF6B08;
 		
-	}
+//	}
 
-	.first-page, .dots, .last-page{
-		display: none;
-		justify-content: center;
-		align-items: center;
-		display: none;
-		@media screen and (min-width: 768px) {
-				display: flex;
-			}
-	}
-	.arrow-left, .arrow-right{
-		background-color: #F7F7F7;
-	}
+//	.first-page, .dots, .last-page{
+//		display: none;
+//		justify-content: center;
+//		align-items: center;
+//		display: none;
+//		@media screen and (min-width: 768px) {
+//				display: flex;
+//			}
+//	}
+//	.arrow-left, .arrow-right{
+//		background-color: #F7F7F7;
+//	}
+//}
+
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+	//   color: var(--main-color);
+	background: var(--secondary-text-color);
+	border-color: var(--secondary-text-color);
+	//   cursor: default;
+}
+
+.tui-pagination .tui-is-selected:hover {
+	background-color: var(--secondary-text-color);
+}
+
+.tui-pagination .tui-first-child.tui-is-selected {
+	border-left: 1px solid var(--secondary-text-color);
+}
+
+.tui-pagination .tui-last-child.tui-is-selected {
+	border-right: 1px solid var(--secondary-text-color);
+}
+
+.tui-page-inputs .tui-page-current {
+	color: var(--secondary-text-color);
+}
+
+.tui-pagination {
+	margin: 0 0 60px;
+}
+
+.tui-pagination .tui-page-btn {
+	border: none;
+	//height: 44px;
+	//width: 44px;
+	border-radius: 5px;
 }

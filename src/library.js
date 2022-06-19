@@ -1,5 +1,4 @@
 import renderLibraryMarkup from './js/markup-library';
-import { toggleLibrary } from './js/markup-library';
 import fetcMovieForModal from './js/markup-modal';
 import localStorageMovie from './js/local-storage';
 import apiService from './js/fetchApi';
@@ -9,9 +8,6 @@ const modal = document.querySelector('.backdrop-modal');
 
 library.addEventListener('click', openModal);
 modal.addEventListener('click', closeModal);
-
-renderLibraryMarkup();
-//toggleLibrary();
 
 function openModal(e) {
   window.addEventListener(`keydown`, onEscCloseModal);

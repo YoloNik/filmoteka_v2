@@ -4,7 +4,8 @@ class fetchAPI {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
-    this.totalPages;
+    this.totalPages = null;
+    this.totalResults = null;
     this.genres = {};
     this.movieId = '';
   }
@@ -25,6 +26,10 @@ class fetchAPI {
         return response.json();
       })
       .then(data => {
+        this.totalPages = data.total_pages;
+        //console.log(data.total_results);
+        this.totalResults = data.total_results;
+        //console.log(this.totalResults);
         return data;
       })
       .catch(error => console.log(error));
@@ -33,15 +38,19 @@ class fetchAPI {
   get query() {
     return this.searchQuery;
   }
-
   set query(newQuery) {
     this.searchQuery = newQuery;
   }
 
-  async getGenres() {
-    return await fetch(
-      `${this.BASE_URL}/genre/movie/list?api_key=${this.API_KEY}`
-    )
+  get numOfPageGet() {
+    this.page;
+  }
+  set numOfPageSet(newPage) {
+    this.page = newPage;
+  }
+
+  getGenres() {
+    return fetch(`${this.BASE_URL}/genre/movie/list?api_key=${this.API_KEY}`)
       .then(data => {
         if (data.ok) {
           return data.json();
@@ -60,8 +69,8 @@ class fetchAPI {
   get genresValue() {
     return this.genres;
   }
-  async getSingleMovie() {
-    return await fetch(
+  getSingleMovie() {
+    return fetch(
       `${this.BASE_URL}/movie/${this.movieId}?api_key=${this.API_KEY}`
     )
       .then(response => {

@@ -2,7 +2,7 @@ import apiService from './js/fetchApi';
 import fetchMoviesWhisGenres from './js/markup-movie-card';
 import fetcMovieForModal from './js/markup-modal';
 import localStorageMovie from './js/local-storage';
-import { paginationRender } from './js/pagination';
+import pagOptions from './js/pagination';
 
 const searchQuery = document.getElementById(`search__form`);
 const homeBtn = document.querySelector('.header__home-btn');
@@ -10,7 +10,6 @@ const myLibrary = document.querySelector('.header__library-btn');
 const movieGallery = document.getElementById(`gallery`);
 const singleMovie = document.querySelector('.movie-card');
 const modal = document.querySelector('.backdrop-modal');
-const pag = document.querySelector('.pagination-container');
 
 modal.addEventListener('click', closeModal);
 movieGallery.addEventListener('click', openModal);
@@ -51,5 +50,4 @@ function onEscCloseModal(e) {
     window.removeEventListener(`keydown`, onEscCloseModal);
   }
 }
-
-//paginationRender();
+pagOptions();

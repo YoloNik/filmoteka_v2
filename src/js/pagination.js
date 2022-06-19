@@ -1,57 +1,71 @@
 import apiService from './fetchApi';
+import Pagination from 'tui-pagination';
+import fetchMoviesWhisGenres from './markup-movie-card';
+import 'tui-pagination/dist/tui-pagination.css';
 
-////const arrowLeft = document.querySelector('.arrow-left');
-////const arrowRight = document.querySelector('.arrow-right');
-//const pagination = document.querySelector('.pagination-container');
+const container = document.getElementById('pagination');
+container.addEventListener('click', onPag);
 
-//apiService.getTrendMovies().then(data => {
-//  pagination.addEventListener('click', pageNav);
-//  console.log(apiService.page);
-//  function pageNav(e) {
-//    if (e.target.closest('.arrow-right')) {
-//      nextPage(data.total_pages);
-//    }
-//    if (e.target.closest('.arrow-left')) {
-//      previousPage();
-//    }
-//    if (e.target.closest('.first-page')) {
-//      firstPage();
-//    }
-//    if (e.target.closest('.last-page')) {
-//      lastPage(data.total_pages);
-//    }
-//    console.log(apiService.page);
-//  }
-//});
+export default async function pagOptions() {
+  await apiService.getTrendMovies();
 
-//function nextPage(total_pages) {
-//  if (apiService.page !== total_pages) apiService.page += 1;
-//}
-//function previousPage() {
-//  if (apiService.page !== 1) apiService.page -= 1;
-//}
-//function firstPage() {
-//  if (apiService.page !== 1) {
-//    apiService.page = 1;
-//  }
-//}
-//function lastPage(total_pages) {
-//  console.log(total_pages);
-//  if (apiService.page !== total_pages) apiService.page = total_pages;
-//}
+  const options = {
+    totalItems: apiService.totalResults,
+    itemsPerPage: 20,
+    visiblePages: 5,
+    page: 1,
+    centerAlign: false,
+    firstItemClassName: 'tui-first-child',
+    lastItemClassName: 'tui-last-child',
+    template: {
+      page: `<a href="#" class="tui-page-btn numButton">{{page}}</a>`,
+      currentPage: `<strong class="tui-page-btn tui-is-selected">{{page}}</strong>`,
+      moveButton:
+        '<a href="#" class="tui-page-btn  tui-{{type}}">' +
+        '<span class="tui-ico-{{type}}">1</span>' +
+        '</a>',
+      disabledMoveButton:
+        '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+        ' 1 <span class="tui-ico-{{type}}">{{type}}</span>' +
+        '</span>',
+      moreButton:
+        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+        '<span class="tui-ico-ellip">...</span>' +
+        '</a>',
+    },
+  };
 
-//function simpleTemplating(data) {
-//  var html = '<ul>';
-//  $.each(data, function (index, item) {
-//    html += '<li>' + item + '</li>';
-//  });
-//  html += '</ul>';
-//  return html;
-//}
-//$('#pagination-container').pagination({
-//  dataSource: [1, 2, 3, 4, 5, 6, 7, ...195],
-//  callback: function (data, pagination) {
-//    var html = simpleTemplating(data);
-//    $('#data-container').html(html);
-//  },
-//});
+  const pagination = new Pagination(container, options);
+  return pagination;
+}
+
+function onPag(e) {
+  if (e.target.textContent !== `...`) {
+    if (e.target.closest('.numButton')) {
+      apiService.numOfPageSet = +e.target.textContent;
+      console.dir(e.target);
+      console.dir(apiService.page);
+      fetchMoviesWhisGenres();
+    }
+    if (e.target.closest('.tui-next')) {
+      apiService.page += 1;
+      //console.log(apiService.page);
+      fetchMoviesWhisGenres();
+    }
+    if (e.target.closest('.tui-prev') && apiService.page > 1) {
+      apiService.page -= 1;
+      //console.log(apiService.page);
+      fetchMoviesWhisGenres();
+    }
+    if (e.target.closest('.tui-last')) {
+      apiService.page = apiService.totalPages;
+      //console.log(apiService.page);
+      fetchMoviesWhisGenres();
+    }
+    if (e.target.closest('.tui-first')) {
+      apiService.page = 1;
+      //console.log(apiService.page);
+      fetchMoviesWhisGenres();
+    }
+  }
+}
