@@ -60,6 +60,12 @@ header {
       height: 24px;
       width: 24px;
       color: $logo-svg;
+			animation: rotateLogo 3s;
+			
+			@keyframes rotateLogo {
+				from{transform: translate(-230px) rotate(-540deg)}
+					to{}
+			}
     }
     h1 {
       color: $white-color;
@@ -68,6 +74,7 @@ header {
   .header__nav {
     display: flex;
     align-items: flex-end;
+		
 
     @media screen and (min-width: 768px) {
       align-items: center;
@@ -77,6 +84,9 @@ header {
       text-decoration: none;
       color: $white-color;
       margin-left: 40px;
+			&:hover {
+					color: $accent-color-orange;
+				}
       @media screen and (min-width: 768px) {
         margin-top: 15px;
         margin-right: 2px;

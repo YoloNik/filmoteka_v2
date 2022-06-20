@@ -22,6 +22,10 @@
 		height: 402px;
 		width: 280px;
 		border-radius: 5px;
+		&:hover{
+			transform: scale(1.025,1.025);
+			box-shadow: 0 0 10px  $accent-color-orange;
+		}
 
 		@media screen and (min-width: 768px) {
 			width: 295px;

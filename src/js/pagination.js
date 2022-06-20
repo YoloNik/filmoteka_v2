@@ -32,18 +32,35 @@ export default async function pagOptions() {
         '<li class="tui-page-btn tui-{{type}}-is-ellip">' +
         '<div class="tui-ico-ellip">...</div>' +
         '</li>',
+      //page: '<a href="#" class="tui-page-btn numButton">{{page}}</a>',
+      //currentPage:
+      //  '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+      //moveButton:
+      //  '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      //  '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      //  '</a>',
+      //disabledMoveButton:
+      //  '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      //  '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      //  '</span>',
+      //moreButton:
+      //  '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      //  '<span class="tui-ico-ellip">...</span>' +
+      //  '</a>',
     },
   };
 
   const pagination = new Pagination(container, options);
-  const first = document.querySelector('.tui-ico-first');
-  const prev = document.querySelector('.tui-ico-prev');
-  const next = document.querySelector('.tui-ico-next');
-  const last = document.querySelector('.tui-ico-last');
+  const numButton = document.querySelector('.numButton');
+  const first = document.querySelector('.tui-first');
+  const prev = document.querySelector('.tui-prev');
+  const next = document.querySelector('.tui-next');
+  const last = document.querySelector('.tui-last');
   first.innerHTML = '1';
-  prev.innerHTML = '<';
-  next.innerHTML = '>';
   last.innerHTML = `${apiService.totalPages}`;
+  if (numButton.textContent === 1) {
+    first.style.display = 'none';
+  }
   return pagination;
 }
 
@@ -51,28 +68,22 @@ function onPag(e) {
   if (e.target.textContent !== `...`) {
     if (e.target.closest('.numButton')) {
       apiService.numOfPageSet = +e.target.textContent;
-      console.dir(e.target);
-      console.dir(apiService.page);
       fetchMoviesWhisGenres();
     }
     if (e.target.closest('.tui-next')) {
       apiService.page += 1;
-      //console.log(apiService.page);
       fetchMoviesWhisGenres();
     }
     if (e.target.closest('.tui-prev') && apiService.page > 1) {
       apiService.page -= 1;
-      //console.log(apiService.page);
       fetchMoviesWhisGenres();
     }
     if (e.target.closest('.tui-last')) {
       apiService.page = apiService.totalPages;
-      //console.log(apiService.page);
       fetchMoviesWhisGenres();
     }
     if (e.target.closest('.tui-first')) {
       apiService.page = 1;
-      //console.log(apiService.page);
       fetchMoviesWhisGenres();
     }
   }
