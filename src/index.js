@@ -2,6 +2,7 @@ import apiService from './js/fetchApi';
 import fetchMoviesWhisGenres from './js/markup-movie-card';
 import fetcMovieForModal from './js/markup-modal';
 import localStorageMovie from './js/local-storage';
+//import pagination from './js/pagination';
 import pagOptions from './js/pagination';
 
 const searchQuery = document.getElementById(`search__form`);
@@ -51,3 +52,4 @@ function onEscCloseModal(e) {
   }
 }
 pagOptions();
+//pagination();

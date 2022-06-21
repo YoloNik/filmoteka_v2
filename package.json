@@ -27,7 +27,6 @@
     "lodash.debounce": "^4.0.8",
     "node-sass": "^7.0.1",
     "notiflix": "^3.2.5",
-    "paginationjs": "^2.1.5",
-    "tui-pagination": "^3.4.1"
+    "paginationjs": "^2.1.5"
   }
 }

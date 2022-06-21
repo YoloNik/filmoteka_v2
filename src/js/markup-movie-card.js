@@ -20,7 +20,7 @@ export default function fetchMoviesWhisGenres() {
   });
 }
 
-function createCards(movieData, normaGenres) {
+export function createCards(movieData, normaGenres) {
   const movieCard = movieData
     .map((el, idx) => {
       let movieCard = document.createElement(`div`);
