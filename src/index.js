@@ -11,6 +11,7 @@ const myLibrary = document.querySelector('.header__library-btn');
 const movieGallery = document.getElementById(`gallery`);
 const singleMovie = document.querySelector('.movie-card');
 const modal = document.querySelector('.backdrop-modal');
+const modalWin = document.querySelector('.output-js');
 
 modal.addEventListener('click', closeModal);
 movieGallery.addEventListener('click', openModal);
@@ -38,6 +39,7 @@ function openModal(e) {
   }
 }
 function closeModal(e) {
+  modalWin.innerHTML = '';
   if (
     e.target.closest(`.modal-content__close-btn`) ||
     e.target.className === 'backdrop-modal'
@@ -46,10 +48,10 @@ function closeModal(e) {
   }
 }
 function onEscCloseModal(e) {
+  modalWin.innerHTML = '';
   if (e.code === 'Escape') {
     modal.style.display = `none`;
     window.removeEventListener(`keydown`, onEscCloseModal);
   }
 }
 pagOptions();
-//pagination();
