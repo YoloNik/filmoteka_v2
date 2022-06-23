@@ -1,4 +1,4 @@
-import renderLibraryMarkup from './js/markup-library';
+//import renderLibraryMarkup from './js/markup-library';
 import fetcMovieForModal from './js/markup-modal';
 import localStorageMovie from './js/local-storage';
 import apiService from './js/fetchApi';

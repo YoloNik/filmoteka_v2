@@ -30,5 +30,6 @@ export default function pagOptions() {
     },
     prevText: '',
     nextText: '',
+    pageRange: 2,
   });
 }

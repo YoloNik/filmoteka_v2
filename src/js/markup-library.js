@@ -9,6 +9,7 @@ let storageQueue = JSON.parse(localStorage.getItem('queue')) || [];
 optionsBtn.addEventListener('click', toggleLibrary);
 
 renderMovie(storageWatched);
+
 export function renderLibraryMarkup() {
   if (watchedBtn.closest('.active-btn')) {
     renderMovie(storageWatched);
@@ -28,6 +29,7 @@ function toggleLibrary(e) {
     queueBtn.classList.add('active-btn');
     watchedBtn.classList.remove('active-btn');
     storageQueue = JSON.parse(localStorage.getItem('queue')) || [];
+
     renderMovie(storageQueue);
   }
 }

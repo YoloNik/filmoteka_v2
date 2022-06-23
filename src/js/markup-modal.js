@@ -2,6 +2,15 @@ import apiService from './fetchApi';
 //import fetchNormaMovie from './markup-movie-card';
 
 const modalWin = document.querySelector('.output-js');
+let watched = [];
+let queue = [];
+
+if (localStorage.getItem('watched')) {
+  watched = JSON.parse(localStorage.getItem('watched'));
+}
+if (localStorage.getItem('queue')) {
+  queue = JSON.parse(localStorage.getItem('queue'));
+}
 
 export default async function fetcMovieForModal() {
   return await apiService.getSingleMovie().then(movieData => {
@@ -13,7 +22,26 @@ export default async function fetcMovieForModal() {
 }
 
 function createModal(movieData, normaGenres) {
-  return (modalWin.innerHTML = `<img class="modal-content__img"
+  let watchedText;
+  let queueText;
+  const isExistWatched = watched.find(el => {
+    return el.id === movieData.id;
+  });
+  if (isExistWatched) {
+    watchedText = 'remove from Watched ';
+  } else {
+    watchedText = 'add to Watched';
+  }
+
+  const isExistQueue = queue.find(el => {
+    return el.id === movieData.id;
+  });
+  if (isExistQueue) {
+    queueText = 'remove from queue ';
+  } else {
+    queueText = 'add to queue';
+  }
+  const markupModal = (modalWin.innerHTML = `<img class="modal-content__img"
 			src="${
         movieData.poster_path
           ? 'https://image.tmdb.org/t/p/w500' + movieData.poster_path
@@ -42,8 +70,10 @@ function createModal(movieData, normaGenres) {
 			   <h3 class="modal-content__subtitle">About</h3>
       <p class="modal-content__description">${movieData.overview}</p>
       <div class="btn-wrap content__btn-wrap">
-          <button class="btn-wrap__btn active" data-action="watched">add to Watched</button>
-          <button class="btn-wrap__btn " data-action="queue">add to Queue</button>
+          <button class="btn-wrap__btn active" data-action="watched">${watchedText}</button>
+          <button class="btn-wrap__btn " data-action="queue">${queueText}</button>
         </div>
     `);
+
+  return markupModal;
 }

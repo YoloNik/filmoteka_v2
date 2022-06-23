@@ -2,7 +2,6 @@ import apiService from './js/fetchApi';
 import fetchMoviesWhisGenres from './js/markup-movie-card';
 import fetcMovieForModal from './js/markup-modal';
 import localStorageMovie from './js/local-storage';
-//import pagination from './js/pagination';
 import pagOptions from './js/pagination';
 
 const searchQuery = document.getElementById(`search__form`);
@@ -39,17 +38,17 @@ function openModal(e) {
   }
 }
 function closeModal(e) {
-  modalWin.innerHTML = '';
   if (
     e.target.closest(`.modal-content__close-btn`) ||
     e.target.className === 'backdrop-modal'
   ) {
+    modalWin.innerHTML = '';
     modal.style.display = `none`;
   }
 }
 function onEscCloseModal(e) {
-  modalWin.innerHTML = '';
   if (e.code === 'Escape') {
+    modalWin.innerHTML = '';
     modal.style.display = `none`;
     window.removeEventListener(`keydown`, onEscCloseModal);
   }
