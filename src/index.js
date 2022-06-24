@@ -3,6 +3,7 @@ import fetchMoviesWhisGenres from './js/markup-movie-card';
 import fetcMovieForModal from './js/markup-modal';
 import localStorageMovie from './js/local-storage';
 import pagOptions from './js/pagination';
+import scrollUp from './js/scroll-up';
 
 const searchQuery = document.getElementById(`search__form`);
 const homeBtn = document.querySelector('.header__home-btn');
@@ -33,6 +34,8 @@ function openModal(e) {
     apiService.movieId = movieId;
     fetcMovieForModal();
 
+    document.querySelector('body').style.overflow = 'hidden';
+    modal.style.overflow = 'scroll';
     modal.style.display = `block`;
     localStorageMovie();
   }
@@ -44,6 +47,7 @@ function closeModal(e) {
   ) {
     modalWin.innerHTML = '';
     modal.style.display = `none`;
+    document.querySelector('body').style.overflow = 'scroll';
     //apiService.movieId = 'none';
   }
 }
@@ -51,7 +55,9 @@ function onEscCloseModal(e) {
   if (e.code === 'Escape') {
     modalWin.innerHTML = '';
     modal.style.display = `none`;
+    document.querySelector('body').style.overflow = 'scroll';
     window.removeEventListener(`keydown`, onEscCloseModal);
   }
 }
+scrollUp();
 pagOptions();

@@ -60,11 +60,13 @@ header {
       height: 24px;
       width: 24px;
       color: $logo-svg;
+			position: relative;
 			animation: rotateLogo 3s;
 			
 			@keyframes rotateLogo {
-				from{transform: translate(-230px) rotate(-540deg)}
-					to{}
+				from{left: -100%;}
+					to{left: 0;
+						transform: rotate(-540deg)}
 			}
     }
     h1 {
