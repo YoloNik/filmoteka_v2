@@ -58,6 +58,7 @@ function createModal(movieData, normaGenres) {
           <li class="category-value-list__item">${normaGenres}</li>
         </ul>
       </div>
+			<button class="player">Watch the trailer</button>
 				<h3 class="modal-content__subtitle">About</h3>
       <p class="modal-content__description">${movieData.overview}</p>
       <div class="btn-wrap content__btn-wrap">
