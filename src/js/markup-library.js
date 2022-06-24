@@ -8,13 +8,12 @@ let storageQueue = JSON.parse(localStorage.getItem('queue')) || [];
 
 optionsBtn.addEventListener('click', toggleLibrary);
 
-renderMovie(storageWatched);
-
-export function renderLibraryMarkup() {
+export default function renderLibraryMarkup() {
   if (watchedBtn.closest('.active-btn')) {
-    renderMovie(storageWatched);
-  } else {
-    renderMovie(storageQueue);
+    renderMovie(JSON.parse(localStorage.getItem(`watched`)) || []);
+  }
+  if (queueBtn.closest('.active-btn')) {
+    renderMovie(JSON.parse(localStorage.getItem('queue')) || []);
   }
 }
 
@@ -29,7 +28,6 @@ function toggleLibrary(e) {
     queueBtn.classList.add('active-btn');
     watchedBtn.classList.remove('active-btn');
     storageQueue = JSON.parse(localStorage.getItem('queue')) || [];
-
     renderMovie(storageQueue);
   }
 }

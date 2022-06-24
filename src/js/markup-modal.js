@@ -1,29 +1,20 @@
 import apiService from './fetchApi';
-//import fetchNormaMovie from './markup-movie-card';
 
 const modalWin = document.querySelector('.output-js');
-let watched = [];
-let queue = [];
-
-if (localStorage.getItem('watched')) {
-  watched = JSON.parse(localStorage.getItem('watched'));
-}
-if (localStorage.getItem('queue')) {
-  queue = JSON.parse(localStorage.getItem('queue'));
-}
 
 export default async function fetcMovieForModal() {
   return await apiService.getSingleMovie().then(movieData => {
-    const normaGenres = movieData.genres
-      .map(genres => genres[`name`])
-      .join(', ');
+    let normaGenres = movieData.genres.map(genres => genres[`name`]).join(', ');
     createModal(movieData, normaGenres);
   });
 }
 
 function createModal(movieData, normaGenres) {
+  let watched = JSON.parse(localStorage.getItem('watched')) || [];
+  let queue = JSON.parse(localStorage.getItem('queue')) || [];
   let watchedText;
   let queueText;
+
   const isExistWatched = watched.find(el => {
     return el.id === movieData.id;
   });
@@ -67,7 +58,7 @@ function createModal(movieData, normaGenres) {
           <li class="category-value-list__item">${normaGenres}</li>
         </ul>
       </div>
-			   <h3 class="modal-content__subtitle">About</h3>
+				<h3 class="modal-content__subtitle">About</h3>
       <p class="modal-content__description">${movieData.overview}</p>
       <div class="btn-wrap content__btn-wrap">
           <button class="btn-wrap__btn active" data-action="watched">${watchedText}</button>

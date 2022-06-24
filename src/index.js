@@ -44,6 +44,7 @@ function closeModal(e) {
   ) {
     modalWin.innerHTML = '';
     modal.style.display = `none`;
+    //apiService.movieId = 'none';
   }
 }
 function onEscCloseModal(e) {

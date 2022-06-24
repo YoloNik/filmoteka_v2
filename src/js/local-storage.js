@@ -1,21 +1,14 @@
 import apiService from './fetchApi';
 
 export default function localStorageMovie() {
-  let watched = [];
-  let queue = [];
-  if (localStorage.getItem('watched')) {
-    watched = JSON.parse(localStorage.getItem('watched'));
-  }
-  if (localStorage.getItem('queue')) {
-    queue = JSON.parse(localStorage.getItem('queue'));
-  }
+  let watched = JSON.parse(localStorage.getItem('watched')) || [];
+  let queue = JSON.parse(localStorage.getItem('queue')) || [];
 
   window.addEventListener(`click`, movieInLocalStorage);
 
   function movieInLocalStorage(e) {
     const watchedBtn = document.querySelector('[data-action="watched"]');
     const queueBtn = document.querySelector('[data-action="queue"]');
-    const library = document.querySelector('.library');
 
     apiService.getSingleMovie().then(movieData => {
       if (e.target.closest(`[data-action="watched"]`)) {
@@ -28,18 +21,11 @@ export default function localStorageMovie() {
 
           watched.push(movieData);
           localStorage.setItem('watched', JSON.stringify(watched));
-          library.innerHTML = watched;
         } else {
           watchedBtn.innerHTML = 'add to Watched';
-          watched.map(el => {
-            localStorage.removeItem('watched', el);
+          watched = watched.filter(el => el.id !== movieData.id);
 
-            let idx = watched.indexOf(el);
-            if (idx !== -1) {
-              watched.splice(idx, 1);
-              localStorage.setItem('watched', JSON.stringify(watched));
-            }
-          });
+          localStorage.setItem('watched', JSON.stringify(watched));
         }
       }
       if (e.target.closest(`[data-action="queue"]`)) {
@@ -53,15 +39,8 @@ export default function localStorageMovie() {
           localStorage.setItem('queue', JSON.stringify(queue));
         } else {
           queueBtn.innerHTML = 'add to queue ';
-          queue.map(el => {
-            localStorage.removeItem('queue', el);
-
-            let idx = queue.indexOf(el);
-            if (idx !== -1) {
-              queue.splice(idx, 1);
-              localStorage.setItem('queue', JSON.stringify(queue));
-            }
-          });
+          queue = queue.filter(el => el.id !== movieData.id);
+          localStorage.setItem('queue', JSON.stringify(queue));
         }
       }
     });

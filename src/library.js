@@ -1,4 +1,4 @@
-//import renderLibraryMarkup from './js/markup-library';
+import renderLibraryMarkup from './js/markup-library';
 import fetcMovieForModal from './js/markup-modal';
 import localStorageMovie from './js/local-storage';
 import apiService from './js/fetchApi';
@@ -8,6 +8,7 @@ const modal = document.querySelector('.backdrop-modal');
 
 library.addEventListener('click', openModal);
 modal.addEventListener('click', closeModal);
+renderLibraryMarkup();
 
 function openModal(e) {
   window.addEventListener(`keydown`, onEscCloseModal);
@@ -26,11 +27,14 @@ function closeModal(e) {
     e.target.className === 'backdrop-modal'
   ) {
     modal.style.display = `none`;
+    localStorageMovie();
+    renderLibraryMarkup();
   }
 }
 function onEscCloseModal(e) {
   if (e.code === 'Escape') {
     modal.style.display = `none`;
     window.removeEventListener(`keydown`, onEscCloseModal);
+    renderLibraryMarkup();
   }
 }
