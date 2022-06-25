@@ -3,7 +3,7 @@ import fetchMoviesWhisGenres from './js/markup-movie-card';
 import fetcMovieForModal from './js/markup-modal';
 import localStorageMovie from './js/local-storage';
 import pagOptions from './js/pagination';
-import scrollUp from './js/scroll-up';
+//import scrollUp from './js/scroll-up';
 //import movieTreiler from './js/movie-trailer';
 //import './js/movie-trailer';
 
