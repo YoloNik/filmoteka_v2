@@ -1,6 +1,7 @@
 class fetchAPI {
   BASE_URL = 'https://api.themoviedb.org/3';
   API_KEY = `87f9885ae1efa5e26738121aab64796c`;
+  YOUTUBE_KEY = 'AIzaSyAoZCMxd9X9T2zq4yrzvfmXAvZ5Lsi9_ks';
   constructor() {
     this.searchQuery = '';
     this.page = 1;
@@ -82,6 +83,14 @@ class fetchAPI {
         return data;
       })
       .catch(error => console.log(error));
+  }
+  getMovieTreiler() {
+    fetch(`https://www.googleapis.com/youtube/v3/list?key=${this.YOUTUBE_KEY}`)
+      .then(response => {
+        if (response.status === 404) throw new Error();
+        return response.json();
+      })
+      .then(data => console.log(data));
   }
 }
 

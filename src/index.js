@@ -4,6 +4,8 @@ import fetcMovieForModal from './js/markup-modal';
 import localStorageMovie from './js/local-storage';
 import pagOptions from './js/pagination';
 import scrollUp from './js/scroll-up';
+//import movieTreiler from './js/movie-trailer';
+//import './js/movie-trailer';
 
 const searchQuery = document.getElementById(`search__form`);
 const homeBtn = document.querySelector('.header__home-btn');
@@ -33,6 +35,8 @@ function openModal(e) {
     let movieId = e.target.dataset.id;
     apiService.movieId = movieId;
     fetcMovieForModal();
+    //movieTreiler();
+    //console.log(movieTreiler());
 
     document.querySelector('body').style.overflow = 'hidden';
     modal.style.overflow = 'scroll';
@@ -59,5 +63,7 @@ function onEscCloseModal(e) {
     window.removeEventListener(`keydown`, onEscCloseModal);
   }
 }
-scrollUp();
+//scrollUp();
 pagOptions();
+
+apiService.getMovieTreiler();
