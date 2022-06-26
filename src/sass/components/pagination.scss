@@ -31,9 +31,9 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: $white-color;
+	background: var(--white-color);
 	font-size: 14px;
-	color: $primary-text-color;
+	color: var(	--primary-text-color);
 	text-decoration: none;
 }
 
@@ -42,16 +42,16 @@
 }
 
 .paginationjs .paginationjs-pages li.active>a {
-	background: $accent-color-orange;
+	background: var(--accent-color-orange);
 	border-radius: 5px;
-	color:	$white-color;
+	color:	var(--white-color);
 }
 
 .paginationjs .paginationjs-pages li.disabled>a {
 	display: none;
 }
 .paginationjs .paginationjs-pages li:first-child{
-	background-color: $footer-color;
+	background-color: var(--footer-color);
 }
 
 .paginationjs .paginationjs-pages li:first-child>a {
@@ -60,7 +60,7 @@
 }
 
 .paginationjs .paginationjs-pages li:last-child{
-	background-color: $footer-color;
+	background-color: var(--footer-color);
 }
 .paginationjs .paginationjs-pages li:last-child>a {
 		background: url(../img/arrow-right.svg) no-repeat center;

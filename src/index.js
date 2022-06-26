@@ -1,8 +1,9 @@
 import apiService from './js/fetchApi';
 import fetchMoviesWhisGenres from './js/markup-movie-card';
-import fetcMovieForModal from './js/markup-modal';
+import fetchMovieForModal from './js/markup-modal';
 import localStorageMovie from './js/local-storage';
 import pagOptions from './js/pagination';
+import './js/movie-trailer';
 //import scrollUp from './js/scroll-up';
 //import movieTreiler from './js/movie-trailer';
 //import './js/movie-trailer';
@@ -33,10 +34,10 @@ function openModal(e) {
   window.addEventListener(`keydown`, onEscCloseModal);
   if (e.target.closest('.movie-card')) {
     let movieId = e.target.dataset.id;
+
     apiService.movieId = movieId;
-    fetcMovieForModal();
-    //movieTreiler();
-    //console.log(movieTreiler());
+
+    fetchMovieForModal();
 
     document.querySelector('body').style.overflow = 'hidden';
     modal.style.overflow = 'scroll';
@@ -63,7 +64,6 @@ function onEscCloseModal(e) {
     window.removeEventListener(`keydown`, onEscCloseModal);
   }
 }
+
 //scrollUp();
 pagOptions();
-
-apiService.getMovieTreiler();

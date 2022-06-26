@@ -32,4 +32,6 @@ export default function pagOptions() {
     nextText: '',
     pageRange: 2,
   });
+  //const pageOne = document.querySelector('[data-num="1"]');
+  //console.log(pageOne);
 }

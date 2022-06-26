@@ -1,7 +1,7 @@
 class fetchAPI {
   BASE_URL = 'https://api.themoviedb.org/3';
   API_KEY = `87f9885ae1efa5e26738121aab64796c`;
-  YOUTUBE_KEY = 'AIzaSyAoZCMxd9X9T2zq4yrzvfmXAvZ5Lsi9_ks';
+  YOUTUBE_KEY = 'AIzaSyAqwBPstw0ee4duUd71wGhCECpWChRe6Rs';
   constructor() {
     this.searchQuery = '';
     this.page = 1;
@@ -9,6 +9,8 @@ class fetchAPI {
     this.totalResults = null;
     this.genres = {};
     this.movieId = '';
+    this.movieName = '';
+    this.movieTreilerId = '';
   }
 
   async getTrendMovies() {
@@ -28,9 +30,8 @@ class fetchAPI {
       })
       .then(data => {
         this.totalPages = data.total_pages;
-        //console.log(data.total_results);
         this.totalResults = data.total_results;
-        //console.log(this.totalResults);
+
         return data;
       })
       .catch(error => console.log(error));
@@ -85,12 +86,19 @@ class fetchAPI {
       .catch(error => console.log(error));
   }
   getMovieTreiler() {
-    fetch(`https://www.googleapis.com/youtube/v3/list?key=${this.YOUTUBE_KEY}`)
+    return fetch(
+      `${this.BASE_URL}/movie/${this.movieId}/videos?api_key=${this.API_KEY}`
+    )
       .then(response => {
         if (response.status === 404) throw new Error();
+
         return response.json();
       })
-      .then(data => console.log(data));
+      .then(data => {
+        this.movieId = data.id;
+        return data;
+      })
+      .catch(error => console.log(error));
   }
 }
 

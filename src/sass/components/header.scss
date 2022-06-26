@@ -1,13 +1,3 @@
-$accent-color-orange: #ff6b08;
-$accent-color-red: #ff001b;
-$title-color: #000000;
-$white-color: #ffffff;
-$primary-text-color: #000000;
-$secondary-text-color: #545454;
-$body-color: #e5e5e5;
-$footer-color: #f7f7f7;
-$logo-svg: #818181;
-
 body,
 h2,
 h3,
@@ -59,7 +49,7 @@ header {
     img {
       height: 24px;
       width: 24px;
-      color: $logo-svg;
+      color: var(--logo-svg);
 			position: relative;
 			animation: rotateLogo 3s;
 			
@@ -70,7 +60,7 @@ header {
 			}
     }
     h1 {
-      color: $white-color;
+      color: var(--white-color);
     }
   }
   .header__nav {
@@ -84,10 +74,10 @@ header {
     }
     .nav {
       text-decoration: none;
-      color: $white-color;
+      color: var(--white-color);
       margin-left: 40px;
 			&:hover {
-					color: $accent-color-orange;
+					color: var(--accent-color-orange);
 				}
       @media screen and (min-width: 768px) {
         margin-top: 15px;
@@ -95,7 +85,7 @@ header {
       }
     }
     .header__active-page {
-      text-decoration: underline 3px $accent-color-orange solid;
+      text-decoration: underline 3px var(--accent-color-orange) solid;
     }
   }
 }
@@ -124,12 +114,12 @@ header {
       width: 130px;
       height: 44px;
       background-color: inherit;
-      color: $white-color;
-      border: 1px $white-color solid;
+      color: var(--white-color);
+      border: 1px var(--white-color) solid;
       border-radius: 5px;
     }
     .active-btn {
-      background-color: $accent-color-orange;
+      background-color: var(--accent-color-orange);
     }
   }
 
@@ -149,15 +139,15 @@ header {
   .search__form {
     display: flex;
     justify-content: center;
-    border-bottom: 0.5px $white-color solid;
+    border-bottom: 0.5px var(--white-color) solid;
     &:hover {
-      border-bottom: 0.5px $accent-color-orange solid;
+      border-bottom: 0.5px var(--accent-color-orange) solid;
     }
     & input {
       background-color: inherit;
       border: none;
       padding-bottom: 3px;
-      color: $white-color;
+      color: var(--white-color);
       width: 280px;
       outline: none;
       @media screen and (min-width: 768px) {
@@ -165,13 +155,13 @@ header {
       }
     }
     & input::placeholder {
-      color: $white-color;
+      color: var(--white-color);
       font-size: 14px;
     }
     button {
       background-color: inherit;
       border: none;
-      color: $white-color;
+      color: var(--white-color);
       height: 12px;
       width: 12px;
       background: url(../img/search.png) no-repeat;
@@ -182,7 +172,7 @@ header {
     font-size: 14px;
     height: 32px;
     visibility: hidden;
-    color: $accent-color-red;
+    color: var(--accent-color-red);
   }
 }
 

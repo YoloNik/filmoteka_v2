@@ -1,3 +1,9 @@
+	@mixin hoverBtn {
+		&:hover {
+			box-shadow: inset 0 0 25px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+			text-shadow: 1px 1px 1px var(--accent-color-orange);
+		}
+	}
 
 
 .output-js {
@@ -32,7 +38,7 @@
 }
 
 .backdrop-container {
-	background-color: $white-color;
+	background-color: var(--white-color);
 	z-index: 2;
 	position: absolute;
 	overflow-y: scroll;
@@ -83,6 +89,15 @@
 		right: 10px;
 		background-color: inherit;
 		border: none;
+		
+		&:hover{
+			animation: rotateLogo 1s;
+				@keyframes rotateLogo {
+					from {
+					transform: rotate(180deg)
+					}
+				}
+		}
 			@media screen and (min-width: 768px) {
 					top: 10px;
 					right: 10px;
@@ -117,7 +132,7 @@
 
 			&__item {
 				list-style-type: none;
-				color: $secondary-text-color;
+				color: var(--secondary-text-color);
 				margin-bottom: 13px;
 			}
 		}
@@ -129,7 +144,7 @@ margin-left: 20px;
 			align-items: center;
 			gap: 10px;
 			list-style-type: none;
-			color: $primary-text-color;
+			color: var(	--primary-text-color);
 			margin-bottom: 10px;
 			
 
@@ -141,8 +156,8 @@ margin-left: 20px;
 				border-radius: 5px;
 				height: 16px;
 				width: 36px;
-				color: $white-color;
-				background-color: $accent-color-orange;
+				color: var(--white-color);
+				background-color: var(--accent-color-orange);
 			}
 		}
 	}
@@ -165,7 +180,6 @@ margin-left: 20px;
 		margin-bottom: 40px;
 		@media screen and (min-width: 768px) {
 			margin: 20px 0 40px;
-			//gap: 5px;
 			}
 						@media screen and (min-width: 1024px) {
 							justify-content: flex-start;
@@ -173,15 +187,16 @@ margin-left: 20px;
 
 		&__btn {
 			margin-top: 15px;
-			border: 1px $title-color solid;
+			border: 1px var(--title-color)solid;
 			border-radius: 5px;
 			text-transform: uppercase;
 			height: 45px;
 			width: 112px;
 			background-color: inherit;
+			@include hoverBtn();
 			@media screen and (min-width: 768px) {
 			width: 125px;
-				}
+			}
 			
 				@media screen and (min-width: 1024px) {
 				width: 136px;
@@ -190,8 +205,20 @@ margin-left: 20px;
 
 		.active {
 			border: none;
-			color: $white-color;
-			background-color: $accent-color-orange;
+			color: var(--white-color);
+			background-color: var(--accent-color-orange);
 		}
 	}
+	.player-Btn{
+		text-transform: uppercase;
+		border: none;
+		background-color: var(--accent-color-orange);
+		color: var(--white-color);
+		border-radius: 5px;
+		height: 44px;
+		width: 100%;
+		@include hoverBtn
+	}
 }
+
+
