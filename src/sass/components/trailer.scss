@@ -1,3 +1,7 @@
+.overlay-backdrop{
+	width: 100%;
+	height: 100%;
+}
 /* The Overlay (background) */
 .overlay {
   /* Height & width depends on how you want to reveal the overlay (see JS below) */   
@@ -102,12 +106,16 @@
 	position: absolute;
 
 	&.arrow-left {
+
 		left: 5%;
-		top: 50%
+		top: 50%;
+		background: url(../img/playT.png);
 	}
 
 	&.arrow-right {
 		right: 5%;
-		top: 50%
+		top: 50%;
+				//width: 40px;
+				//	height: 40px;
 	}
 }

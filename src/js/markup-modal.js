@@ -12,7 +12,7 @@ export default async function fetchMovieForModal() {
 
     const trailerBtn = document.getElementById(movieData.id);
 
-    document.querySelector('.closebtn').addEventListener('click', closeTrailer);
+    document.querySelector('.overlay').addEventListener('click', closeTrailer);
     modalWin.addEventListener('click', onTrailerBtn);
 
     function onTrailerBtn(e) {
@@ -41,7 +41,6 @@ export default async function fetchMovieForModal() {
                 );
               }
             });
-            console.log();
             let contentOfVideo = `
 						<h1 class="titel">${original_title}</h1>
 						<br/>
@@ -58,8 +57,13 @@ export default async function fetchMovieForModal() {
       });
     }
     /* Close when someone clicks on the "x" symbol inside the overlay */
-    function closeTrailer() {
-      document.getElementById('myNav').style.width = '0%';
+    function closeTrailer(e) {
+      if (
+        e.target.closest('.closebtn') ||
+        e.target.closest('.overlay-backdrop')
+      ) {
+        document.getElementById('myNav').style.width = '0%';
+      }
     }
   });
 }
