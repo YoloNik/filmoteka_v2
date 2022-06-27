@@ -20,7 +20,7 @@ export default function fetchMoviesWhisGenres() {
     if (movieData.total_results > 0) {
       apiService.responseApi = movieData;
       createCards(movieData.results, normaGenres);
-      //document.querySelector('.paginationjs').style.display = 'block';
+      document.querySelector('.paginationjs').style.display = 'block';
     } else {
       errorText.style.visibility = `visible`;
       document.querySelector('.paginationjs').style.display = 'none';
