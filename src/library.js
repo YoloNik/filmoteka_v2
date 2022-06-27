@@ -1,5 +1,5 @@
 import renderLibraryMarkup from './js/markup-library';
-import fetcMovieForModal from './js/markup-modal';
+import fetchMovieForModal from './js/markup-modal';
 import localStorageMovie from './js/local-storage';
 import apiService from './js/fetchApi';
 
@@ -14,9 +14,13 @@ function openModal(e) {
   window.addEventListener(`keydown`, onEscCloseModal);
   if (e.target.closest('.movie-card')) {
     let movieId = e.target.dataset.id;
-    apiService.movieId = movieId;
-    fetcMovieForModal();
 
+    apiService.movieId = movieId;
+
+    fetchMovieForModal();
+
+    document.querySelector('body').style.overflow = 'hidden';
+    modal.style.overflow = 'scroll';
     modal.style.display = `block`;
     localStorageMovie();
   }

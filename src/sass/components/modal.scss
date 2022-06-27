@@ -7,7 +7,6 @@
 
 
 .output-js {
-	//padding: 0 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -15,12 +14,11 @@
 			display: flex;
 			align-items: flex-start;
 			flex-direction: row;
-			margin: 40px 0 ;
+			margin-top: 40px ;
 			padding: 0 23px;
 			gap: 23px
 		}
 		@media screen and (min-width: 1024px) {
-			padding-top: 10px;
 			gap:0
 		}
 }
@@ -46,12 +44,13 @@
 	left: 50%;
 	transform: translateX(-50%) translateY(-50%);
 	padding: 48px 10px 0;
+	width: 85vw;
+	height: 85vh;
 	@media screen and (min-width: 768px) {
-		overflow-y: hidden;
-			padding: 0;
+		padding: 0;
 		}
 		@media screen and (min-width: 1024px) {
-				overflow-y: hidden;
+		overflow-y: hidden;
 		}
 .wrap{
 	padding: 0 10px;
@@ -63,24 +62,21 @@
 		margin-left: 20px;
 }
 }
-
 }
 
 .modal-content {
 		width: 100%;
-
-	
 	h2 {
 		margin-top: 30px;
 		margin-bottom: 18px;
 		font-size: 20px;
 		@media screen and (min-width: 768px) {
-				margin: 0;
-				margin-bottom: 20px;
-			}
-						@media screen and (min-width: 1024px) {
-							margin-bottom: 30px;
-						}
+			margin: 0;
+			margin-bottom: 20px;
+		}
+		@media screen and (min-width: 1024px) {
+			margin-bottom: 30px;
+		}
 	}
 
 	&__close-btn {
@@ -91,17 +87,17 @@
 		border: none;
 		
 		&:hover{
-			animation: rotateLogo 1s;
-				@keyframes rotateLogo {
-					from {
-					transform: rotate(180deg)
-					}
+		animation: rotateLogo 1s;
+			@keyframes rotateLogo {
+				from {
+				transform: rotate(180deg)
 				}
+			}
 		}
 			@media screen and (min-width: 768px) {
-					top: 10px;
-					right: 10px;
-				}
+				top: 10px;
+				right: 10px;
+			}
 	}
 
 	&__img {
@@ -181,9 +177,9 @@ margin-left: 20px;
 		@media screen and (min-width: 768px) {
 			margin: 20px 0 40px;
 			}
-						@media screen and (min-width: 1024px) {
-							justify-content: flex-start;
-						}
+		@media screen and (min-width: 1024px) {
+			justify-content: flex-start;
+			}
 
 		&__btn {
 			margin-top: 15px;

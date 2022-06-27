@@ -44,9 +44,9 @@ export default async function fetchMovieForModal() {
             let contentOfVideo = `
 						<h1 class="titel">${original_title}</h1>
 						<br/>
-						${trailerVideos.join('')}
-						<br/>
-						<div class="numOfVideos">${numOfVideos.join('')}</div>`;
+						${trailerVideos.join('')}`;
+            //<br/>
+            //<div class="numOfVideos">${numOfVideos.join('')}</div>`;
 
             overlayContent.innerHTML = contentOfVideo;
             activeTrailer = 0;
@@ -70,7 +70,7 @@ export default async function fetchMovieForModal() {
 
 function showVideo() {
   const movieTreilerClass = document.querySelectorAll('.movieTreiler');
-  const numOfVideosDots = document.querySelectorAll('.numOfVideos-dot');
+  //const numOfVideosDots = document.querySelectorAll('.numOfVideos-dot');
   totalVideo = movieTreilerClass.length;
   movieTreilerClass.forEach((el, idx) => {
     if (activeTrailer === idx) {
@@ -82,13 +82,13 @@ function showVideo() {
     }
   });
 
-  numOfVideosDots.forEach((el, idx) => {
-    if (activeTrailer === idx) {
-      el.classList.add('numOfVideos-dot-active');
-    } else {
-      el.classList.remove('numOfVideos-dot-active');
-    }
-  });
+  //  numOfVideosDots.forEach((el, idx) => {
+  //    if (activeTrailer === idx) {
+  //      el.classList.add('numOfVideos-dot-active');
+  //    } else {
+  //      el.classList.remove('numOfVideos-dot-active');
+  //    }
+  //  });
 }
 const leftArrow = document.querySelector('.arrow-left');
 const rightArrow = document.querySelector('.arrow-right');

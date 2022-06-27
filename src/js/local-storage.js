@@ -1,4 +1,5 @@
 import apiService from './fetchApi';
+import Notiflix from 'notiflix';
 
 export default function localStorageMovie() {
   let watched = JSON.parse(localStorage.getItem('watched')) || [];
@@ -17,15 +18,21 @@ export default function localStorageMovie() {
         });
 
         if (!isExist) {
+          Notiflix.Notify.success(
+            `"${movieData.original_title}" Added to watched`
+          );
           watchedBtn.innerHTML = 'remove from Watched ';
 
           watched.push(movieData);
           localStorage.setItem('watched', JSON.stringify(watched));
         } else {
+          Notiflix.Notify.success(
+            `"${movieData.original_title}" Removed from queue`
+          );
           watchedBtn.innerHTML = 'add to Watched';
           watched = watched.filter(el => el.id !== movieData.id);
 
-          localStorage.setItem('watched', JSON.stringify(watched));
+          localStorage.setItem('watched', JSON.stringify(watched)) || [];
         }
       }
       if (e.target.closest(`[data-action="queue"]`)) {
@@ -34,13 +41,19 @@ export default function localStorageMovie() {
         });
 
         if (!isExist) {
-          queueBtn.innerHTML = 'remove from queue ';
+          Notiflix.Notify.success(
+            `"${movieData.original_title}" Added to queue`
+          );
+          queueBtn.innerHTML = 'remove from queue';
           queue.push(movieData);
           localStorage.setItem('queue', JSON.stringify(queue));
         } else {
-          queueBtn.innerHTML = 'add to queue ';
+          queueBtn.innerHTML = 'add to queue';
+          Notiflix.Notify.success(
+            `"${movieData.original_title}" Removed from queue`
+          );
           queue = queue.filter(el => el.id !== movieData.id);
-          localStorage.setItem('queue', JSON.stringify(queue));
+          localStorage.setItem('queue', JSON.stringify(queue)) || [];
         }
       }
     });

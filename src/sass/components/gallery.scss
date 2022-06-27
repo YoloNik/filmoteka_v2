@@ -3,12 +3,13 @@
 	display: flex;
 	flex: 1;
 	flex-wrap: wrap;
-	justify-content: center;
 	padding: 0 20px;
+	justify-content: center;
+
 
 	@media screen and (min-width: 768px) {
 		gap: 0 28px;
-		margin: 50px 45px;
+		margin: 50px auto;
 		max-width: 618px;
 	}
 
@@ -18,6 +19,7 @@
 		max-width: 882px;
 		justify-content: flex-start;
 	}
+
 
 	img {
 		height: 402px;
@@ -65,5 +67,12 @@
 			text-transform: none;
 			color: var(--accent-color-orange);
 		}
-	}
+}
+		.emptyImg {
+			margin: 0 auto 20px;
+		}
+	
+		.emptyText {
+			font-size: 30px;
+		}
 }

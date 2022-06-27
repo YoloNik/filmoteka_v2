@@ -1,4 +1,5 @@
 import apiService from './fetchApi';
+import Notiflix from 'notiflix';
 
 const movieGallery = document.querySelector(`.gallery`);
 const errorText = document.querySelector(`.search__error`);
@@ -16,7 +17,15 @@ export default function fetchMoviesWhisGenres() {
         })
         .join(', ');
     });
-    createCards(movieData.results, normaGenres);
+    if (movieData.total_results > 0) {
+      Notiflix.Notify.success(
+        `We have found ${movieData.total_results} films especially for you`
+      );
+      createCards(movieData.results, normaGenres);
+    } else {
+      errorText.style.visibility = `visible`;
+      Notiflix.Notify.failure(`Sorry, we don't know a movie with that name`);
+    }
   });
 }
 
@@ -40,7 +49,6 @@ export function createCards(movieData, normaGenres) {
     })
     .join('');
   if (movieData.total_results === 0) {
-    movieGallery.innerHTML = '';
     errorText.style.visibility = `visible`;
   } else {
     movieGallery.innerHTML = movieCard;

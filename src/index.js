@@ -4,15 +4,9 @@ import fetchMovieForModal from './js/markup-modal';
 import localStorageMovie from './js/local-storage';
 import pagOptions from './js/pagination';
 import './js/movie-trailer';
-//import scrollUp from './js/scroll-up';
-//import movieTreiler from './js/movie-trailer';
-//import './js/movie-trailer';
 
 const searchQuery = document.getElementById(`search__form`);
-const homeBtn = document.querySelector('.header__home-btn');
-const myLibrary = document.querySelector('.header__library-btn');
 const movieGallery = document.getElementById(`gallery`);
-const singleMovie = document.querySelector('.movie-card');
 const modal = document.querySelector('.backdrop-modal');
 const modalWin = document.querySelector('.output-js');
 
@@ -53,7 +47,6 @@ function closeModal(e) {
     modalWin.innerHTML = '';
     modal.style.display = `none`;
     document.querySelector('body').style.overflow = 'scroll';
-    //apiService.movieId = 'none';
   }
 }
 function onEscCloseModal(e) {
@@ -65,5 +58,4 @@ function onEscCloseModal(e) {
   }
 }
 
-//scrollUp();
 pagOptions();

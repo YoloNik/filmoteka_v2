@@ -10,10 +10,13 @@ optionsBtn.addEventListener('click', toggleLibrary);
 
 export default function renderLibraryMarkup() {
   if (watchedBtn.closest('.active-btn')) {
-    renderMovie(JSON.parse(localStorage.getItem(`watched`)) || []);
+    storageWatched = JSON.parse(localStorage.getItem(`watched`)) || [];
+    renderMovie(storageWatched);
   }
+
   if (queueBtn.closest('.active-btn')) {
-    renderMovie(JSON.parse(localStorage.getItem('queue')) || []);
+    storageQueue = JSON.parse(localStorage.getItem('queue')) || [];
+    renderMovie(storageQueue);
   }
 }
 
@@ -33,7 +36,11 @@ function toggleLibrary(e) {
 }
 
 function renderMovie(storage) {
-  library.innerHTML = '';
+  if (storage.length === 0) {
+    let emptyLibrary = `<img class="emptyImg" src="https://i.imgur.com/e1IneGq.jpg"></img>`;
+    let emptyText = '<div class="emptyText">There is nothing here (yet)</div>';
+    return (library.innerHTML = emptyLibrary + emptyText);
+  }
   let markup = storage
     .map(el => {
       const normaGenres = el.genres.map(genres => genres[`name`]).join(', ');

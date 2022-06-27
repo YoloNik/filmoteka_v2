@@ -20,10 +20,16 @@
 /* Position the content inside the overlay */
 .overlay-content {
   position: relative;
-  top: 15%; /* 25% from the top */
+  top: 10%; /* 25% from the top */
   width: 100%; /* 100% width */
   text-align: center; /* Centered text/links */
   margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+	@media screen and (min-width:768px) {
+		margin: 0;
+		}
+	& h1{
+		margin: 10px;
+	}
 }
 
 /* The navigation links inside the overlay */
@@ -44,8 +50,8 @@
 /* Position the close button (top right corner) */
 .overlay .closebtn {
   position: absolute;
-  top: 20px;
-  right: 45px;
+  //top: 20px;
+  right: 15px;
   font-size: 60px;
 }
 
@@ -60,10 +66,16 @@
 }
 
 .movieTreiler {
-
-	width: 80vw;
-	height: 50vh;
-
+height: 140px;
+width: 320px;
+@media screen and (min-width:425px)  {
+	height: 240px;
+		width: 425px;
+}
+@media screen and (min-width:768px) {
+	height: 340px;
+	width: 568px;
+}
 	&.hide {
 		display: none;
 	}
@@ -106,16 +118,29 @@
 	position: absolute;
 
 	&.arrow-left {
-
-		left: 5%;
-		top: 50%;
-		background: url(../img/playT.png);
+		left: 30%;
+		bottom: 25%;
+			@media screen and (min-width:425px) {
+		left: 15%;
+		bottom: 10%;
+}
+@media screen and (min-width:768px) {
+		left: 3%;
+		bottom: 40%;
+}
+@media screen and (min-width:768px) {}
 	}
 
 	&.arrow-right {
-		right: 5%;
-		top: 50%;
-				//width: 40px;
-				//	height: 40px;
+		right: 30%;
+		bottom: 25%;
+				@media screen and (min-width:425px) {
+		right: 15%;
+		bottom: 10%;
+				}
+		@media screen and (min-width:768px) {
+			right: 3%	;
+			bottom: 40%;
+		}
 	}
 }
