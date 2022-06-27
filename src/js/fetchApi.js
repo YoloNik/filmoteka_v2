@@ -1,7 +1,6 @@
 class fetchAPI {
   BASE_URL = 'https://api.themoviedb.org/3';
   API_KEY = `87f9885ae1efa5e26738121aab64796c`;
-  YOUTUBE_KEY = 'AIzaSyAqwBPstw0ee4duUd71wGhCECpWChRe6Rs';
   constructor() {
     this.searchQuery = '';
     this.page = 1;
