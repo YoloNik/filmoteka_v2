@@ -27,7 +27,7 @@ export default function localStorageMovie() {
           localStorage.setItem('watched', JSON.stringify(watched));
         } else {
           Notiflix.Notify.success(
-            `"${movieData.original_title}" Removed from queue`
+            `"${movieData.original_title}" Removed from watched`
           );
           watchedBtn.innerHTML = 'add to Watched';
           watched = watched.filter(el => el.id !== movieData.id);
