@@ -18,13 +18,11 @@ export default function fetchMoviesWhisGenres() {
         .join(', ');
     });
     if (movieData.total_results > 0) {
-      Notiflix.Notify.success(
-        `We have found ${movieData.total_results} films especially for you`
-      );
+      apiService.responseApi = movieData;
       createCards(movieData.results, normaGenres);
     } else {
       errorText.style.visibility = `visible`;
-      Notiflix.Notify.failure(`Sorry, we don't know a movie with that name`);
+      movieGallery.innerHTML = `<img class="emptyImg" src="https://i.imgur.com/e1IneGq.jpg"></img>`;
     }
   });
 }

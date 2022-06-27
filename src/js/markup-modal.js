@@ -52,6 +52,7 @@ export default async function fetchMovieForModal() {
             activeTrailer = 0;
             showVideo();
           } else {
+            document.querySelector('.player-Btn').style.disabled = true;
           }
         }
       });

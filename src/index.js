@@ -1,8 +1,8 @@
 import apiService from './js/fetchApi';
 import fetchMoviesWhisGenres from './js/markup-movie-card';
 import fetchMovieForModal from './js/markup-modal';
-import localStorageMovie from './js/local-storage';
-import pagOptions from './js/pagination';
+import './js/local-storage';
+import './js/pagination';
 import './js/movie-trailer';
 
 const searchQuery = document.getElementById(`search__form`);
@@ -13,8 +13,14 @@ const modalWin = document.querySelector('.output-js');
 modal.addEventListener('click', closeModal);
 movieGallery.addEventListener('click', openModal);
 searchQuery.addEventListener(`click`, onSearchBtn);
+searchQuery.addEventListener('keyup', changeSearchQuery);
 
 fetchMoviesWhisGenres();
+
+function changeSearchQuery(e) {
+  apiService.query = e.currentTarget.elements[0].value;
+  fetchMoviesWhisGenres();
+}
 
 function onSearchBtn(e) {
   if (e.target.closest(`button`)) {
@@ -36,7 +42,6 @@ function openModal(e) {
     document.querySelector('body').style.overflow = 'hidden';
     modal.style.overflow = 'scroll';
     modal.style.display = `block`;
-    localStorageMovie();
   }
 }
 function closeModal(e) {
@@ -57,5 +62,3 @@ function onEscCloseModal(e) {
     window.removeEventListener(`keydown`, onEscCloseModal);
   }
 }
-
-pagOptions();

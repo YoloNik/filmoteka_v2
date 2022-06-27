@@ -1,6 +1,6 @@
 import renderLibraryMarkup from './js/markup-library';
 import fetchMovieForModal from './js/markup-modal';
-import localStorageMovie from './js/local-storage';
+import './js/local-storage';
 import apiService from './js/fetchApi';
 
 const library = document.querySelector('.library');

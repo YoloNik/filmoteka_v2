@@ -11,6 +11,7 @@ class fetchAPI {
     this.movieId = '';
     this.movieName = '';
     this.movieTreilerId = '';
+    this.responseApi = [];
   }
 
   async getTrendMovies() {
