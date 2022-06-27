@@ -22,6 +22,7 @@ export default function fetchMoviesWhisGenres() {
       createCards(movieData.results, normaGenres);
     } else {
       errorText.style.visibility = `visible`;
+      document.querySelector('.paginationjs').style.display = 'none';
       movieGallery.innerHTML = `<img class="emptyImg" src="https://i.imgur.com/e1IneGq.jpg"></img>`;
     }
   });
