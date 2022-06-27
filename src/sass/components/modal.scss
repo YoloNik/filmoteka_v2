@@ -87,8 +87,8 @@
 		border: none;
 		
 		&:hover{
-		animation: rotateLogo 1s;
-			@keyframes rotateLogo {
+		animation: rotateCloseBtn 1s;
+			@keyframes rotateCloseBtn {
 				from {
 				transform: rotate(180deg)
 				}
