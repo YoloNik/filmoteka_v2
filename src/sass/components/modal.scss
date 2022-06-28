@@ -14,11 +14,12 @@
 			display: flex;
 			align-items: flex-start;
 			flex-direction: row;
-			margin-top: 40px ;
+			
 			padding: 0 23px;
 			gap: 23px
 		}
 		@media screen and (min-width: 1024px) {
+			margin-top: 5px ;
 			gap:0
 		}
 }
