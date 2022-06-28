@@ -1,5 +1,6 @@
 import renderLibraryMarkup from './js/markup-library';
 import fetchMovieForModal from './js/markup-modal';
+
 import './js/local-storage';
 import apiService from './js/fetchApi';
 
@@ -22,7 +23,6 @@ function openModal(e) {
     document.querySelector('body').style.overflow = 'hidden';
     modal.style.overflow = 'scroll';
     modal.style.display = `block`;
-    localStorageMovie();
   }
 }
 function closeModal(e) {
@@ -31,7 +31,6 @@ function closeModal(e) {
     e.target.className === 'backdrop-modal'
   ) {
     modal.style.display = `none`;
-    localStorageMovie();
     renderLibraryMarkup();
   }
 }

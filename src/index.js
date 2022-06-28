@@ -1,6 +1,7 @@
 import apiService from './js/fetchApi';
 import fetchMoviesWhisGenres from './js/markup-movie-card';
 import fetchMovieForModal from './js/markup-modal';
+//import movieInLocalStorage from './js/local-storage';
 import './js/local-storage';
 import './js/pagination';
 import './js/movie-trailer';

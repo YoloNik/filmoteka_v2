@@ -6,7 +6,7 @@ let queue = JSON.parse(localStorage.getItem('queue')) || [];
 
 window.addEventListener(`click`, movieInLocalStorage);
 
-function movieInLocalStorage(e) {
+export default function movieInLocalStorage(e) {
   const watchedBtn = document.querySelector('[data-action="watched"]');
   const queueBtn = document.querySelector('[data-action="queue"]');
 
