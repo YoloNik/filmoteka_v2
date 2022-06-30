@@ -5,23 +5,22 @@
 		}
 	}
 
-
 .output-js {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	@media screen and (min-width: 768px) {
-			display: flex;
-			align-items: flex-start;
-			flex-direction: row;
-			
-			padding: 0 23px;
-			gap: 23px
-		}
-		@media screen and (min-width: 1024px) {
-			margin-top: 5px ;
-			gap:0
-		}
+		display: flex;
+		align-items: flex-start;
+		flex-direction: row;
+		
+		padding: 0 23px;
+		gap: 23px
+	}
+	@media screen and (min-width: 1024px) {
+		margin-top: 5px ;
+		gap:0
+	}
 }
 
 .backdrop-modal {
@@ -49,10 +48,10 @@
 	height: 90vh;
 	@media screen and (min-width: 768px) {
 		padding: 0;
-		}
-		@media screen and (min-width: 1024px) {
+	}
+	@media screen and (min-width: 1024px) {
 		overflow-y: hidden;
-		}
+	}
 .wrap{
 	padding: 0 10px;
 	@media screen and (min-width: 768px) {
@@ -66,7 +65,6 @@
 }
 
 .modal-content {
-	//position: absolute;
 		width: 100%;
 	h2 {
 		margin-top: 30px;
@@ -141,7 +139,6 @@
 		}
 .category-value-list{
 margin-left: 20px;
-
 		&__item {
 			display: flex;
 			align-items: center;
@@ -149,9 +146,8 @@ margin-left: 20px;
 			list-style-type: none;
 			color: var(	--primary-text-color);
 			margin-bottom: 10px;
-			
 
-			&_bg-color {
+		&_bg-color {
 				text-align: center;
 				display: flex;
 				justify-content: center;

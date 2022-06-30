@@ -79,11 +79,9 @@ width: 320px;
 	&.hide {
 		display: none;
 	}
-
 	&.show {
 		display: inline-block;
 	}
-
 }
 
 .titel {
@@ -116,7 +114,6 @@ width: 320px;
 
 .arrow {
 	position: absolute;
-
 	&.arrow-left {
 		left: 30%;
 		bottom: 25%;
