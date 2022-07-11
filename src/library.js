@@ -31,12 +31,14 @@ function closeModal(e) {
     e.target.className === 'backdrop-modal'
   ) {
     modal.style.display = `none`;
+    document.querySelector('body').style.overflow = 'scroll';
     renderLibraryMarkup();
   }
 }
 function onEscCloseModal(e) {
   if (e.code === 'Escape') {
     modal.style.display = `none`;
+    document.querySelector('body').style.overflow = 'scroll';
     window.removeEventListener(`keydown`, onEscCloseModal);
     renderLibraryMarkup();
   }
