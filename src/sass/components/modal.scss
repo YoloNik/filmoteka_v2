@@ -216,7 +216,9 @@ margin-left: 20px;
 		border-radius: 5px;
 		height: 44px;
 		width: 100%;
-		@include hoverBtn
+		@include hoverBtn;
+		transform: box-shadow 250ms cubic-bezier() inset 0 0 25px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+			text-shadow: 1px 1px 1px var(--accent-color-orange);
 	}
 }
 
